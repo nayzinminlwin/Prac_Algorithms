@@ -1,4 +1,4 @@
-# from collections import Counter
+from collections import Counter
 
 class Solution(object):
     def isAnagram(self, s, t):
@@ -30,6 +30,9 @@ class Solution(object):
         #     return True
         # else :
         #     return False
+
+        # Method 3 : in one line ; LOL
+        # return Counter(s) == Counter(t)
         
         # method 4 : sorting and comparing method
         # if sorted(s) == sorted(t):
