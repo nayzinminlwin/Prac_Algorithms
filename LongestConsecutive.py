@@ -45,10 +45,30 @@ class Solution(object):
         
         return max(Length,longLength)
     
+    # GPT Solution, using hashset
+    def Longest_ConsecutiveSequence_HashSetVer(self, nums:List[int])->int:
+        if not nums:
+            return 0
+        
+        numSet = set(nums)
+        longestLen  = 0
+
+        for num in numSet:
+            if not num-1 in numSet:
+                currentNum = num
+                currentLen = 1
+
+                while currentNum+1 in numSet:
+                    currentNum +=1
+                    currentLen +=1
+                
+                longestLen = max(currentLen,longestLen)
+        return longestLen
+    
 sol = Solution()
-print("Length : ",sol.Longest_ConsecutiveSequence_CompactVer([4,8,1,1,10,7,2,6]))
 print("Length : ",sol.Longest_Consecutive([4,8,1,1,10,7,2,6]))
-print("Length : ",sol.Longest_ConsecutiveSequence_CompactVer([0,3,7,2,5,8,4,6,0,1]))
-print("Length : ",sol.Longest_ConsecutiveSequence_CompactVer([2,20,4,10,3,4,5]))
-print("Length : ",sol.Longest_ConsecutiveSequence_CompactVer([0,3,2,5,4,6,1,1]))
-print("Length : ",sol.Longest_ConsecutiveSequence_CompactVer([100,4,200,1,3,2]))
+print("Length : ",sol.Longest_ConsecutiveSequence_HashSetVer([4,8,1,1,10,7,2,6]))
+print("Length : ",sol.Longest_ConsecutiveSequence_HashSetVer([0,3,7,2,5,8,4,6,0,1]))
+print("Length : ",sol.Longest_ConsecutiveSequence_HashSetVer([2,20,4,10,3,4,5]))
+print("Length : ",sol.Longest_ConsecutiveSequence_HashSetVer([0,3,2,5,4,6,1,1]))
+print("Length : ",sol.Longest_ConsecutiveSequence_HashSetVer([100,4,200,1,3,2]))
