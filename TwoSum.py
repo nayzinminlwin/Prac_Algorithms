@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution0():
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -38,6 +38,6 @@ class Solution(object):
         return None
 
     
-sol = Solution()
-print(sol.twoSum([5,3,1,3,3,33,3,1],2))
+# sol = Solution0()
+# print(sol.twoSum([5,3,1,3,3,33,3,1],2))
         
