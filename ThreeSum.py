@@ -9,25 +9,27 @@ class Solution(object):
             return None
         
         nums.sort()
-        intArr = []
+        intArr = set()
+        
         for i in range(len(nums)):
             if i>0 and nums[i] == nums[i-1]:
+                print("Gotta Continue!")
                 continue
-            print("numssssssssssssss : ",nums)
+
             target = 0 - nums[i]
-            print("target is :::::::", target)
             numArr = nums[:i]+nums[i+1:]
-            print("Num arr is now :::::::", numArr)
+
             solution = Solution0()
             tsIndexes =solution.twoSum(numArr,target)
+
             if tsIndexes:
-                intArr.append([nums[i],numArr[tsIndexes[0]],numArr[tsIndexes[1]]])
+                triplet = [nums[i],numArr[tsIndexes[0]],numArr[tsIndexes[1]]]
+                triplet.sort()
+                intArr.add(tuple(triplet))
 
-        print(intArr)
-
-        return intArr
+        return [list(triplets) for triplets in intArr]
     
 sol = Solution()
-print(sol.ThreeIntegerSum([-1,0,1,2,-1,-4])) #[[-1,-1,2],[-1,0,1]]
-# print(sol.ThreeIntegerSum([0,1,1])) #[]
+# print(sol.ThreeIntegerSum([-1,0,1,2,-1,-4])) #[[-1,-1,2],[-1,0,1]]
+print(sol.ThreeIntegerSum([0,1,1])) #[]
 # print(sol.ThreeIntegerSum([0,0,0])) #[0,0,0]
