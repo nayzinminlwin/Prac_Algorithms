@@ -11,14 +11,15 @@ class Solution():
             # print("i is ",i)
             while True:
                 guess = random.randint(31,122)
-                sys.stdout.write(f"\r{guessString}{chr(guess)}")
-                sys.stdout.flush()
+                # sys.stdout.write(f"\r{guessString}{chr(guess)}")
+                # sys.stdout.flush()
+                print(f"\r{guessString}{chr(guess)}",end="", flush=True)
                 time.sleep(0.02)
                 if guess == ord(rightString[i]):
                     guessString = guessString + chr(guess)
                     break
 
-        print("\nThe String is ",guessString)
+        print("\nThe String is",guessString)
 
 sol = Solution()
 sol.random_HelloWorld()
