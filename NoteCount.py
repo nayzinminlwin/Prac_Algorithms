@@ -43,6 +43,3 @@ sol = Solution()
 newString = sol.textGroupCount(sol.readFile())
 print(f"The new String is : {newString}")
 sol.writeFile(newString)
-
-
-    
